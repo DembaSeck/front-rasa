@@ -1,0 +1,77 @@
+<div class="row mb-1 custom-border md-1 mt-1" *ngFor="let res of listeresponses | paginate: { itemsPerPage: 3, currentPage: page,
+    totalItems:totalLength} ">
+    
+ <div class="col-md-3 custom-border-right" >
+    <header><h3 class="text-center">Details</h3> </header>
+    <div class="col">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fas fa-info-circle blue-color"></i></div>
+             <div class="col-md-10">Nom: {{res.nom}} </div>
+        </div>
+     
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa-solid fa-business-time blue-color"></i></div>
+             <div class="col-md-8">{{res.disponibilite}} </div>
+        </div>
+       
+       
+     </div>
+  </div>
+  <!--details Adresse-->
+  <div class="col-md-4 custom-border-right">
+    <header><h3 class="text-center">Adresse</h3> </header>
+    <div class="col">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa-solid fa-location-dot blue-color"></i></div>
+             <div class="col-md-11">{{res.adresse}} </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa-solid fa-map-location-dot btn-link blue-color"></i></div>
+             <a class="col-md-11" href="{{res.localisation}}">localisation </a>
+        </div>
+    </div>
+    
+</div>
+  <!--details dispo-->
+  <div class="col-md-3 custom-border-right">
+    <header><h3 class="text-center">Contact</h3> </header>
+    <div class="col">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa-solid fa-phone blue-color"></i></div>
+             <div class="col-md-10">{{res.telephone}} </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fa-solid fa-at blue-color"></i></div>
+             <div class="col-md-10">{{res.email}} </div>
+        </div>
+    </div>
+</div>
+
+          <!--les bouttons acton-->
+        <div class="col-md-2">
+            <div class="row">
+         <div class="col-md-5">
+            <button type="button" class="btn btn-link" [routerLink]="['/nouvelresponse']">
+                <i class="fas fa-pencil-alt"></i>&nbsp;Modifier
+            </button>
+        </div> 
+         <div class="col-md-1">
+            <button type="button" class="btn btn-link">
+                <i class="fas fa-trash-alt"></i>&nbsp;Supprimer
+            </button>
+         </div>
+         
+        </div>
+      </div>  
+      
+</div>
+
+      <pagination-controls (pageChange)="page=$event"> </pagination-controls>
+ 
+

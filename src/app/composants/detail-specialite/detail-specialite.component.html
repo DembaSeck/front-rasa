@@ -1,0 +1,67 @@
+<div class="row mb-1 custom-border md-1 mt-1" *ngFor="let specialite of listeSpecialite  | paginate: { itemsPerPage: 3, currentPage: page,
+    totalItems:totalLength}">
+    <div class="col-md-2 border right">
+        <img [src]="specialite.url_photo ? specialite.url_photo :'assets/product.png'" width="100px" height="100px">
+    </div>
+ <div class="col-md-4 custom-border-right">
+    <div class="col">
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fas fa-user-doctor blue-color"></i></div>
+             <div class="col-md-11">{{specialite.nom}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fas fa-comment-medical blue-color"></i></div>
+             <label class="col-md-11">{{specialite.patterns}}</label>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <i class="fas fa-info-circle"></i></div>
+             <div class="col-md-11">{{specialite.id}}</div>
+        </div>
+       
+       
+     </div>
+  </div>
+  <!--details Specialite-->
+        <div class="col-md-3 custom-border-right">
+            <div class="row">
+                <div class="col-md-2">
+                    <i class="fas fa-flag-checkered blue-color"></i>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-12"> nom Specialite</div>
+                        <div class="col-md-12"> description Specialite</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          <!--les bouttons acton-->
+        <div class="col-md-3">
+            <div class="row">
+         <div class="col-md-4">
+            <button type="button" class="btn btn-link" [routerLink]="['/nouvelspecialite']">
+                <i class="fas fa-pencil-alt"></i>&nbsp;Modifier
+            </button>
+        </div> 
+         <div class="col-md-4">
+            <button type="button" class="btn btn-link">
+                <i class="fas fa-trash-alt"></i>&nbsp;Supprimer
+            </button>
+         </div>
+         <div class="col-md-4">
+            <button type="button" class="btn btn-link">
+                <i class="fas fa-list-alt"></i>&nbsp;Details
+            </button>
+         </div>  
+        </div>
+      </div>  
+   
+</div>
+<pagination-controls (pageChange)="page=$event"> </pagination-controls>
+
+
+

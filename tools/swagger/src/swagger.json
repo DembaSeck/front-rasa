@@ -1,0 +1,493 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Swagger api for documentation",
+    "version" : "0.0.1-SNAPSHOT}",
+    "title" : "Swagger Api Documentation for crud Rasa_Sante Application",
+    "contact" : {
+      "name" : "Demba Seck",
+      "url" : "https://www.udemy.com/user/demba-seck",
+      "email" : "dembaseck1010@gmail.com"
+    }
+  },
+  "basePath" : "https://localhost:8080",
+  "tags" : [ {
+    "name" : "crudspringv1specialites"
+  } ],
+  "paths" : {
+    "/crudspring/v1/specialites/create" : {
+      "post" : {
+        "tags" : [ "crudspringv1specialites" ],
+        "summary" : "Enregistrer une Specialite",
+        "description" : "cette methode permet d'enregistrer ou modifier une specialite",
+        "operationId" : "save",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/SpecialiteDto"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "l'objet specialite crée / modifier",
+            "schema" : {
+              "$ref" : "#/definitions/SpecialiteDto"
+            }
+          },
+          "400" : {
+            "description" : "l'objet specialite n'est pas valideD"
+          }
+        }
+      }
+    },
+    "/lieuxes/all" : {
+      "get" : {
+        "operationId" : "findAll",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/LieuxesDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lieuxes/create" : {
+      "post" : {
+        "operationId" : "save",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/LieuxesDto"
+            }
+          }
+        }
+      }
+    },
+    "/lieuxes/delete/{idlieux}" : {
+      "delete" : {
+        "operationId" : "delete",
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/lieuxes/{idlieux}" : {
+      "get" : {
+        "operationId" : "findById",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/LieuxesDto"
+            }
+          }
+        }
+      }
+    },
+    "/lieuxes/{nom}" : {
+      "get" : {
+        "operationId" : "findByNom",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/LieuxesDto"
+            }
+          }
+        }
+      }
+    },
+    "/responses/all" : {
+      "get" : {
+        "operationId" : "findAll",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/ResponsesDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/responses/create" : {
+      "post" : {
+        "operationId" : "save",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ResponsesDto"
+            }
+          }
+        }
+      }
+    },
+    "/responses/delete/{idresponse}" : {
+      "delete" : {
+        "operationId" : "delete",
+        "responses" : {
+          "default" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    },
+    "/responses/{idresponse}" : {
+      "get" : {
+        "operationId" : "findById",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ResponsesDto"
+            }
+          }
+        }
+      }
+    },
+    "/responses/{nom}" : {
+      "get" : {
+        "operationId" : "findByNom",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/ResponsesDto"
+            }
+          }
+        }
+      }
+    },
+    "/specialites/all" : {
+      "get" : {
+        "summary" : "Renvoie La Liste des Specialites",
+        "description" : "cette methode permet d'afficher la liste des specialite",
+        "operationId" : "findAll",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "la liste des specialite/liste vides",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/SpecialiteDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/specialites/delete/{idspecialite}" : {
+      "delete" : {
+        "summary" : "Supprimer une specialite",
+        "description" : "cette methode permet de Supprimer une specialite",
+        "operationId" : "delete",
+        "responses" : {
+          "200" : {
+            "description" : "l'objet specialite a été supprimer de la BDD",
+            "schema" : {
+              "$ref" : "#/definitions/SpecialiteDto"
+            }
+          }
+        }
+      }
+    },
+    "/specialites/{idspecialite}" : {
+      "get" : {
+        "summary" : "Rechercher une Specialite",
+        "description" : "cette methode permet de rechercher une specialite par son id",
+        "operationId" : "findById",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "l'objet specialite a été trouvé dans la BDD",
+            "schema" : {
+              "$ref" : "#/definitions/SpecialiteDto"
+            }
+          },
+          "404" : {
+            "description" : "aucune specialite n'existe dans la BDD avec l'id fourni"
+          }
+        }
+      }
+    },
+    "/specialites/{nom}" : {
+      "get" : {
+        "tags" : [ "crudspringv1specialites" ],
+        "summary" : "Rechercher une Specialite par son nom",
+        "description" : "cette methode permet de rechercher une specialite par son nom",
+        "operationId" : "findByNom",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "nom",
+          "in" : "path",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "l'objet specialite a été trouvé dans la BDD",
+            "schema" : {
+              "$ref" : "#/definitions/SpecialiteDto"
+            }
+          },
+          "404" : {
+            "description" : "aucune specialite n'existe dans la BDD avec le nom fourni"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Lieuxes" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nom" : {
+          "type" : "string"
+        },
+        "location" : {
+          "type" : "string"
+        },
+        "latitude" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "longitude" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "LieuxesDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nom" : {
+          "type" : "string"
+        },
+        "location" : {
+          "type" : "string"
+        },
+        "published_at" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "created_by" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "updated_by" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "created_at" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "updated_at" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "latitude" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "longitude" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "Responses" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nom" : {
+          "type" : "string"
+        },
+        "adresse" : {
+          "type" : "string"
+        },
+        "telephone" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "disponibilite" : {
+          "type" : "boolean"
+        },
+        "specialite" : {
+          "$ref" : "#/definitions/Specialites"
+        },
+        "localisation" : {
+          "type" : "string"
+        },
+        "latitude" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "longitude" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "ResponsesDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nom" : {
+          "type" : "string"
+        },
+        "adresse" : {
+          "type" : "string"
+        },
+        "telephone" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "disponibilite" : {
+          "type" : "boolean"
+        },
+        "response" : {
+          "$ref" : "#/definitions/Responses"
+        },
+        "published_at" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "created_by" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "updated_by" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "created_at" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "updated_at" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "localisation" : {
+          "type" : "string"
+        },
+        "latitude" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "longitude" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "SpecialiteDto" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nom" : {
+          "type" : "string"
+        },
+        "patterns" : {
+          "type" : "string"
+        },
+        "published_at" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "created_by" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "updated_by" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "created_at" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "updated_at" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "url_photo" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Specialites" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "nom" : {
+          "type" : "string"
+        },
+        "patterns" : {
+          "type" : "string"
+        },
+        "lieuxes" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Lieuxes"
+          }
+        },
+        "url_photo" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

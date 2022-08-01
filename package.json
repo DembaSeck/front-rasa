@@ -1,0 +1,49 @@
+{
+  "name": "rasa-sante",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "start:local": "npm run crudspring-api && ng serve -- --proxyConfig=proxy.conf.json",
+    "crudspring-api": "npm run crudspring-api:extract && npm run crudspring-api:swagger-gen",
+    "crudspring-api:extract": "node ./tools/swagger/src/swagger.json 0.0.1-SNAPSHOT",
+    "crudspring-api:create-dist":"mkdir - p tools/swagger/dist && mkdir -p tools/swagger/src",
+    "crudspring-api:download":"cp C:/Users/pc/eclipse-workspace/crudspring/target/crudspring-0.0.1-SNAPSHOT ./tools/swagger/dist && cp C:/Users/pc/eclipse-workspace/crudspring/target/swagger.json ./tools/swagger-codegen/src",
+    "crudspring-api:swagger-gen": "./node_modules/.bin/ng-swagger-gen -i ./tools/swagger/src/swagger.json -o src/crudspring-api/src"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^14.0.0",
+    "@angular/common": "^14.0.0",
+    "@angular/compiler": "^14.0.0",
+    "@angular/core": "^14.0.0",
+    "@angular/forms": "^14.0.0",
+    "@angular/platform-browser": "^14.0.0",
+    "@angular/platform-browser-dynamic": "^14.0.0",
+    "@angular/router": "^14.0.0",
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "bootstrap": "^5.1.3",
+    "ngx-pagination": "^5.1.1",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.0.6",
+    "@angular/cli": "~14.0.6",
+    "@angular/compiler-cli": "^14.0.0",
+    "@types/jasmine": "~4.0.0",
+    "jasmine-core": "~4.1.0",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "ng-packagr":"^5.3.0",
+    "ng-swagger-gen":"^1.7.0-b",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.0.0",
+    "karma-jasmine-html-reporter": "~1.7.0",
+    "typescript": "~4.7.2"
+  }
+}
